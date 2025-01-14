@@ -12,7 +12,8 @@
   "dependencies": {
     "@reactvision/react-viro": "^2.41.4",
     "react": "18.2.0",
-    "react-native": "0.73.3"
+    "react-native": "0.73.3",
+    "ViroStarterKit": "file:"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
