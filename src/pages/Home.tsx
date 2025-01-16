@@ -2,277 +2,155 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
-  FlatList,
+  TextInput,
+  SafeAreaView,
   TouchableOpacity,
-  Modal,
-  Image,
-  ActivityIndicator,
+  ScrollView,
 } from 'react-native';
-import {
-  ViroARSceneNavigator,
-} from '@reactvision/react-viro';
-import ProductARScene from '../components/ProductARScene.tsx'
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  model3d: string;
+import { Home as HomeIcon, MapPin as MapIcon, UserCircle as ProfileIcon } from 'lucide-react-native';
+import styles from '../assets/style/homeStyle.js'
+interface Props {
+  navigation?: any;
 }
 
-const SAMPLE_PRODUCTS: Product[] = [
-  {
-    id: '1',
-    name: 'Water Tank',
-    description: 'High-capacity water storage solution',
-    price: 15000,
-    image: 'https://picsum.photos/200',
-    model3d: require('../assets/sample.glb'),
-  },
-  {
-    id: '2',
-    name: 'Storage Tank',
-    description: 'Industrial storage solution',
-    price: 18000,
-    image: 'https://picsum.photos/200',
-    model3d: require('../assets/sample.glb'),
-  },
-];
+const Home: React.FC<Props> = ({ navigation }) => {
+  const [activeTab, setActiveTab] = useState('home');
 
-const Home: React.FC = () => {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isARModalVisible, setIsARModalVisible] = useState(false);
+  const renderTabIcon = (tabName: string) => {
+    const iconProps = {
+      width: 24,
+      height: 24,
+      color: activeTab === tabName ? '#007AFF' : '#666',
+    };
 
-  const renderProduct = ({ item }: { item: Product }) => (
-    <TouchableOpacity
-      style={styles.productCard}
-      onPress={() => setSelectedProduct(item)}
-    >
-      <Image
-        source={{ uri: item.image }}
-        style={styles.productImage}
-      />
-      <View style={styles.productDetails}>
-        <Text style={styles.productName}>{item.name}</Text>
-        <Text style={styles.productPrice}>₱{item.price.toFixed(2)}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
-  const ProductDetailModal = () => {
-    if (!selectedProduct) return null;
-
-    return (
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={!!selectedProduct}
-        onRequestClose={() => setSelectedProduct(null)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Image
-              source={{ uri: selectedProduct.image }}
-              style={styles.modalImage}
-            />
-            <Text style={styles.modalProductName}>{selectedProduct.name}</Text>
-            <Text style={styles.modalDescription}>{selectedProduct.description}</Text>
-            <Text style={styles.modalPrice}>₱{selectedProduct.price.toFixed(2)}</Text>
-
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity
-                style={styles.arButton}
-                onPress={() => setIsARModalVisible(true)}
-              >
-                <Text style={styles.arButtonText}>View in AR</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.closeButton}
-                onPress={() => setSelectedProduct(null)}
-              >
-                <Text style={styles.closeButtonText}>Close</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
-    );
+    switch (tabName) {
+      case 'home':
+        return <HomeIcon {...iconProps} />;
+      case 'map':
+        return <MapIcon {...iconProps} />;
+      case 'profile':
+        return <ProfileIcon {...iconProps} />;
+      default:
+        return <HomeIcon {...iconProps} />;
+    }
   };
 
-  const ARModal = () => {
-    if (!selectedProduct) return null;
-
-    return (
-      <Modal
-        animationType="slide"
-        transparent={false}
-        visible={isARModalVisible}
-        onRequestClose={() => setIsARModalVisible(false)}
-      >
-        <View style={styles.arModalContainer}>
-          <ViroARSceneNavigator
-            autofocus={true}
-            initialScene={{
-              scene: () => <ProductARScene product={selectedProduct} />,
-            }}
-            style={styles.arNavigator}
-          />
-          <View style={styles.arControls}>
+  const [text, onChangeText] = React.useState('Useless Text');
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* Main Content */}
+      <ScrollView>
+        <View style={styles.content}>
+          {/* <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation?.navigate('Details')}>
+          <Text style={styles.buttonText}>Go to Details</Text>
+        </TouchableOpacity> */}
+          <View style={styles.searchBarContainer}>
+            <TextInput
+              style={styles.searchBar}
+              onChangeText={onChangeText}
+              value={text}
+              placeholder='Enter Text'
+            />
             <TouchableOpacity
-              style={styles.closeARButton}
-              onPress={() => setIsARModalVisible(false)}
+              style={styles.searchButton}
+              onPress={() => {/* your search function */ }}
             >
-              <Text style={styles.closeARButtonText}>Close AR View</Text>
+              <Text>🔍</Text>
             </TouchableOpacity>
           </View>
+          <ScrollView horizontal={true} style={styles.circleContainer}>
+            <View style={styles.circleWrapper}>
+              <View style={styles.circle}></View>
+              <View style={styles.circle}></View>
+              <View style={styles.circle}></View>
+              <View style={styles.circle}></View>
+              <View style={styles.circle}></View>
+              <View style={styles.circle}></View>
+            </View>
+          </ScrollView>
+          {/* Featurings */}
+          <View style={styles.featuredContainer}>
+            <View style={styles.square1}>
+            </View>
+
+            <View style={styles.squaresContainer}>
+              <View style={styles.squares}>
+                <View style={styles.square2}>
+                </View>
+              </View>
+
+              <View style={styles.squares}>
+                <View style={styles.square3}>
+                </View>
+                <View style={styles.square3}>
+                </View>
+              </View>
+            </View>
+          </View>
+          {/* Discover */}
+          <ScrollView style={styles.discoverContainer} horizontal={true}>
+            <View style={styles.discoverWrapper}>
+              <Text style={styles.discoverText}>Discover</Text>
+              <Text style={styles.discoverText}>Agoo</Text>
+              <Text style={styles.discoverText}>Aringay</Text>
+              <Text style={styles.discoverText}>Caba</Text>
+              <Text style={styles.discoverText}>Bauang</Text>
+              <Text style={styles.discoverText}>San Fernando</Text>
+              <Text style={styles.discoverText}>San Juan</Text>
+              <Text style={styles.discoverText}>Bacnotan</Text>
+            </View>
+          </ScrollView>
+          {/* Products */}
+          {/* Products */}
+          <View style={styles.productContainer}>
+            <View style={styles.productGrid}>
+              <View style={styles.card}>
+                <Text style={styles.cardText}>Basket</Text>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.cardText}>Tupig</Text>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.cardText}>Suka</Text>
+              </View>
+              <View style={styles.card}>
+                <Text style={styles.cardText}>Halo-Halo</Text>
+              </View>
+            </View>
+          </View>
+
         </View>
-      </Modal>
-    );
-  };
+      </ScrollView>
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.headerTitle}>PRODUKTO ELYUKAL</Text>
-      <FlatList
-        data={SAMPLE_PRODUCTS}
-        renderItem={renderProduct}
-        keyExtractor={(item) => item.id}
-        numColumns={2}
-        contentContainerStyle={styles.productGrid}
-      />
-
-      <ProductDetailModal />
-      <ARModal />
-    </View>
+      {/* Bottom Navigation Bar */}
+      <SafeAreaView style={styles.bottomNav}>
+        {['home', 'map', 'profile'].map((tab) => (
+          <TouchableOpacity
+            key={tab}
+            style={[styles.tabItem, activeTab === tab && styles.activeTab]}
+            onPress={() => {
+              setActiveTab(tab);
+              navigation?.navigate(tab.charAt(0).toUpperCase() + tab.slice(1));
+            }}
+          >
+            {renderTabIcon(tab)}
+            <Text
+              style={[
+                styles.tabLabel,
+                activeTab === tab && styles.activeTabLabel,
+              ]}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f0f4f8',
-    paddingTop: 50,
-  },
-  headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#2c3e8c',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  productGrid: {
-    paddingHorizontal: 10,
-  },
-  productCard: {
-    flex: 1,
-    margin: 5,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    elevation: 3,
-  },
-  productImage: {
-    width: '100%',
-    height: 150,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-  },
-  productDetails: {
-    padding: 10,
-  },
-  productName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#2c3e8c',
-  },
-  productPrice: {
-    fontSize: 14,
-    color: '#2c3e8c',
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-  },
-  modalContent: {
-    width: '85%',
-    backgroundColor: 'white',
-    borderRadius: 15,
-    padding: 20,
-    alignItems: 'center',
-  },
-  modalImage: {
-    width: 250,
-    height: 250,
-    borderRadius: 10,
-  },
-  modalProductName: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#2c3e8c',
-    marginVertical: 10,
-  },
-  modalDescription: {
-    fontSize: 16,
-    color: '#34495e',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  modalPrice: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#2c3e8c',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    marginTop: 15,
-  },
-  arButton: {
-    backgroundColor: '#2c3e8c',
-    padding: 10,
-    borderRadius: 8,
-    marginRight: 10,
-  },
-  arButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  closeButton: {
-    backgroundColor: '#e74c3c',
-    padding: 10,
-    borderRadius: 8,
-  },
-  closeButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  arModalContainer: {
-    flex: 1,
-  },
-  arNavigator: {
-    flex: 1,
-  },
-  arControls: {
-    position: 'absolute',
-    bottom: 20,
-    left: 0,
-    right: 0,
-    padding: 15,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  closeARButton: {
-    backgroundColor: '#2c3e8c',
-    padding: 15,
-    borderRadius: 10,
-  },
-  closeARButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-  },
-});
+
 
 export default Home;
