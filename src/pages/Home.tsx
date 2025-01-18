@@ -124,29 +124,6 @@ const Home: React.FC<Props> = ({ navigation }) => {
         </View>
       </ScrollView>
 
-      {/* Bottom Navigation Bar */}
-      <SafeAreaView style={styles.bottomNav}>
-        {['home', 'map', 'profile'].map((tab) => (
-          <TouchableOpacity
-            key={tab}
-            style={[styles.tabItem, activeTab === tab && styles.activeTab]}
-            onPress={() => {
-              setActiveTab(tab);
-              navigation?.navigate(tab.charAt(0).toUpperCase() + tab.slice(1));
-            }}
-          >
-            {renderTabIcon(tab)}
-            <Text
-              style={[
-                styles.tabLabel,
-                activeTab === tab && styles.activeTabLabel,
-              ]}
-            >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </SafeAreaView>
     </SafeAreaView>
   );
 };
