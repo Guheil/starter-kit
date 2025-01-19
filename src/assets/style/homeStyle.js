@@ -1,10 +1,9 @@
-import { StyleSheet, Platform, StatusBar, Button } from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //   paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    color: "black",
+   
   },
   searchBarContainer: {
     flexDirection: "row",
@@ -122,31 +121,6 @@ cardText: {
   color: '#333',
 },
 
-
-  bottomNav: {
-    flexDirection: "row",
-    borderTopWidth: 1,
-    borderTopColor: "#e0e0e0",
-    backgroundColor: "#f8f8f8",
-  },
-  tabItem: {
-    flex: 1,
-    alignItems: "center",
-    paddingVertical: 8,
-    backgroundColor: "#f8f8f8",
-  },
-  activeTab: {
-    backgroundColor: "#f0f0f0",
-  },
-  tabLabel: {
-    fontSize: 12,
-    color: "#666",
-    marginTop: 4,
-  },
-  activeTabLabel: {
-    color: "#007AFF",
-    fontWeight: "600",
-  },
 });
 
 export default styles;

@@ -3,8 +3,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Text, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Correct FontAwesome import
-import { faHome, faCog, faMap } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+import { faHome, faCog, faMap, faBox } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import Home from '../pages/Home';
+import Products from '../pages/Products'
 
 function SettingsScreen() {
   return (
@@ -64,7 +65,23 @@ const TabNavigator: React.FC = () => {
         name="Home"
         component={Home}
       />
-      {/* Home Screen Tab */}
+      <Tab.Screen
+      options={{
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <View style={styles.iconContainer}>
+            <FontAwesomeIcon
+              icon={faBox} // FontAwesome icon
+              size={24}
+              color={focused ? '#ffa726' : '#bdbdbd'} // Focused state color
+            />
+          </View>
+        ),
+      }}
+      name="Products"
+      component={Products}
+      />
+      {/* Map Screen Tab */}
       <Tab.Screen
         options={{
           headerShown: false,
