@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Corr
 import { faHome, faCog, faMap, faBox } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import Home from '../pages/Home';
 import Products from '../pages/Products'
-import Maps from '../pages/Map';
 
 function SettingsScreen() {
   return (
@@ -97,7 +96,7 @@ const TabNavigator: React.FC = () => {
           ),
         }}
         name="Maps"
-        component={Maps}
+        component={Map}
       />
       {/* Settings Screen Tab */}
       <Tab.Screen

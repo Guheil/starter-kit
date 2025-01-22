@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-   
+    flex: 1
   },
   searchBarContainer: {
     flexDirection: "row",
@@ -28,6 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     color: "black",
+    
   },
   circleContainer:{
     height: 60,
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     color:'black',
     marginRight:10,
     fontSize:15,
+    fontFamily: 'OpenSans-Semibold',
   },
 // Products
 productContainer: {
@@ -119,6 +120,7 @@ cardText: {
   fontSize: 16,
   textAlign: 'center',
   color: '#333',
+  fontFamily: 'OpenSans-Regular',
 },
 
 });
