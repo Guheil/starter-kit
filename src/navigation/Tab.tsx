@@ -5,8 +5,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Correct FontAwesome import
 import { faHome, faCog, faMap, faBox, faCamera } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import Home from '../pages/Home';
-import Products from '../pages/Products';
-import Ar from '../pages/Ar';
+import Products from '../pages/Products'
 
 function SettingsScreen() {
   return (
@@ -96,8 +95,8 @@ const TabNavigator: React.FC = () => {
             </View>
           ),
         }}
-        name="Map"
-        component={Map}
+        name="Maps"
+        component={Maps}
       />
       {/* Settings Screen Tab */}
       <Tab.Screen
