@@ -10,6 +10,10 @@ flex:1
 content:{
     flex:1
 },
+text:{
+fontFamily:'OpenSans-Regular',
+color:'black'
+},
 searchBarContainer:{
     borderColor:'black',
     borderWidth:2,
@@ -21,7 +25,21 @@ searchBar:{
     color:'black',
     
 },
-
+filterContainer:{
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    marginHorizontal:10,
+     textAlign:'center'
+},
+pill:{
+    width:100,
+    height:30,
+    backgroundColor:'gray',
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom:10,
+    borderRadius:10,
+},
 //Products
 productContainer:{
     flex:1,

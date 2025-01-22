@@ -19,6 +19,14 @@ const Products: React.FC = () => {
           <View style={styles.searchBarContainer}>
             <TextInput style={styles.searchBar} onChangeText={onChangeText} value={text} placeholder='Enter Product Name' placeholderTextColor="#000" ></TextInput>
           </View>
+          <View style={styles.filterContainer}>
+            <View style={styles.pill}>
+              <Text style={styles.text}>Categoies</Text>
+            </View>
+            <View style={styles.pill}>
+              <Text style={styles.text}>Filters</Text>
+            </View>
+          </View>
           <ScrollView style={styles.productContainer}>
             <View style={styles.productGrid}>
               <View style={styles.card}>

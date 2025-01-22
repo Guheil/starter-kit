@@ -4,6 +4,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
+  text:{
+    fontFamily: 'OpenSans-Regular',
+    color:'black',
+  },
   searchBarContainer: {
     flexDirection: "row",
   },
@@ -12,16 +16,11 @@ const styles = StyleSheet.create({
     color: "black",
     borderColor: "gray",
     borderWidth: 1,
-    borderTopLeftRadius: 7,
-    borderBottomLeftRadius: 7,
-  },
-  searchButton: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "gray",
-    padding: 10,
-    borderTopRightRadius: 7,
-    borderBottomRightRadius: 7,
+    borderRadius: 50,
+    height:40,
+    color:'black',
+    paddingHorizontal: 15
+
   },
   content: {
     flex: 1,
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
     
   },
   circleContainer:{
-    height: 60,
+    height: 80,
     marginVertical:10,
     marginTop:10,
   },
@@ -38,20 +37,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 10,
 },
-  circle: {
-    borderRadius: 100,
-    backgroundColor: "gray",
-    width:50,
-    height:50,
-    marginRight:10,
-  },
+circleSubContainer:{
+  justifyContent:'center',
+  alignItems:'center',
+  flex:1,
+  marginRight:10,
+  width:80,
+},
+image: {
+  borderRadius: 25,
+  width: 50,
+  height: 50,
+  overflow: 'hidden', 
+},
+
+//features
   featuredContainer:{
   },
   square1:{
     backgroundColor:'gray',
     borderRadius:10,
+    width:316,
+    height:100,
+    overflow:'hidden'
+  },
+  featureImage:{
+    height:'100%',
     width:'100%',
-    height:120,
+    resizeMode:'cover'
   },
   squaresContainer:{
     flexDirection:'row',
@@ -71,6 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor:'gray',
     width:'98%',
     height:210,
+    overflow:'hidden'
     
   },  
   square3:{
@@ -79,6 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor:'gray',
     width:'98%',
     height:100,
+     overflow:'hidden'
   },
   discoverContainer:{
     marginVertical:10,
@@ -105,13 +120,17 @@ productGrid: {
   flexWrap: 'wrap', 
   justifyContent: 'space-between', 
 },
-
+productImage:{
+  width:'100%',
+  height:'100%',
+resizeMode:'cover'
+},
 card: {
   width: '48%',
   height:200,
   backgroundColor: '#fff',
   borderRadius: 8,
-  padding: 16,
+  overflow:'hidden',
   marginBottom: 12,
 
 },
