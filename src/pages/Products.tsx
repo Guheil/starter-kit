@@ -16,27 +16,27 @@ const sampleProducts = [
     name: 'Sukang Iloco',
     price: 99.99,
     description: 'This is a detailed description of product 1.',
-    image: require('../assets/img/food.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
+    image: require('../assets/img/product-images/sukang-iloco.png'),
+    model3d: require('../assets/3d-assets/sukangiloco.glb'), 
     shopLocation: 'Bacnotan, La Union',
   },
   {
     id: 2,
-    name: 'Furniture',
+    name: 'Meme Test',
     price: 149.99,
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/meme.glb'),
-    shopLocation: 'Bacnotan, La Union', // Add the 3D model path
+    shopLocation: 'Bacnotan, La Union', 
   },
   {
     id: 3,
-    name: 'Furniture',
+    name: 'Vigan Basi',
     price: 149.99,
     description: 'This is a detailed description of product 2.',
-    image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    shopLocation: 'Bacnotan, La Union', // Add the 3D model path
+    image: require('../assets/img/product-images/basi-wine.jpg'),
+    model3d: require('../assets/3d-assets/basi-wine.glb'),
+    shopLocation: 'Bacnotan, La Union', 
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    shopLocation: 'Bacnotan, La Union', // Add the 3D model path
+    shopLocation: 'Bacnotan, La Union', 
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    shopLocation: 'Bacnotan, La Union', // Add the 3D model path
+    shopLocation: 'Bacnotan, La Union',
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    shopLocation: 'Bacnotan, La Union', // Add the 3D model path
+    shopLocation: 'Bacnotan, La Union', 
   },
 ];
 
