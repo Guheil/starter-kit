@@ -9,56 +9,29 @@ import {
   Image,
 } from 'react-native';
 import styles from '../assets/style/productStyle';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const sampleProducts = [
   {
     id: 1,
     name: 'Sukang Iloco',
-    price: 99.99,
     description: 'This is a detailed description of product 1.',
     image: require('../assets/img/food.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
+    model3d: require('../assets/3d-assets/sukangiloco.glb'),
+    location: 'Bacnotan',
+    rating: '4.8', // Add rating
   },
   {
     id: 2,
     name: 'Furniture',
-    price: 149.99,
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
+    model3d: require('../assets/3d-assets/sukangiloco.glb'),
+    location: 'San Juan',
+    rating: '4.5', // Add rating
   },
-  {
-    id: 3,
-    name: 'Furniture',
-    price: 149.99,
-    description: 'This is a detailed description of product 2.',
-    image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
-  },
-  {
-    id: 4,
-    name: 'Furniture',
-    price: 149.99,
-    description: 'This is a detailed description of product 2.',
-    image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
-  },
-  {
-    id: 5,
-    name: 'Furniture',
-    price: 149.99,
-    description: 'This is a detailed description of product 2.',
-    image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
-  },
-  {
-    id: 6,
-    name: 'Furniture',
-    price: 149.99,
-    description: 'This is a detailed description of product 2.',
-    image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
-  },
+  // Add more products with ratings
 ];
 
 const Products = ({ navigation }) => {
@@ -99,9 +72,17 @@ const Products = ({ navigation }) => {
                   source={product.image}
                   style={styles.productImage}
                 />
-                <View style={styles.cardTextContainer}>
+                <View style={styles.cardContent}>
                   <Text style={styles.cardText}>{product.name}</Text>
-                  <Text style={styles.priceText}>₱{product.price.toFixed(2)}</Text>
+                  <Text style={styles.locationText}>{product.location}</Text>
+                  <View style={styles.starContainer}>
+                    <FontAwesomeIcon
+                      icon={faStar} // FontAwesome icon
+                      size={15}
+                      style={styles.star}
+                    />
+                    <Text style={styles.starText}>{product.rating}</Text>
+                  </View>
                 </View>
               </TouchableOpacity>
             ))}

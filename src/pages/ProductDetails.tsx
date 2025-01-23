@@ -98,8 +98,6 @@ const ProductDetails = ({ route, navigation }) => {
                 {/* Product Details */}
                 <View style={styles.detailsContainer}>
                     <Text style={styles.productTitle}>{product.name}</Text>
-                    <Text style={styles.productPrice}>₱{product.price.toFixed(2)}</Text>
-
                     {/* AR View Button */}
                     <TouchableOpacity style={styles.arButton} onPress={() => setShowAR(true)}>
                         <Icon name="cube-outline" size={20} color="#FFF" />

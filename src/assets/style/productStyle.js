@@ -2,26 +2,26 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const { width } = Dimensions.get('window');
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F7', // Light gray background
+    backgroundColor: '#f8f8f8',
   },
   content: {
     flex: 1,
-    paddingHorizontal: 16,
+    padding: 16,
   },
   searchBarContainer: {
-    marginVertical: 20,
-    elevation: 3,
+    marginBottom: 16,
   },
   searchBar: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 16,
-    color: '#000',
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    backgroundColor: '#fff',
+    color: '#333',
   },
   productContainer: {
     flex: 1,
@@ -30,43 +30,51 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    paddingBottom: 20,
   },
   card: {
-    width: (width - 52) / 2, // Responsive width calculation
-    backgroundColor: '#FFFFFF',
-    borderRadius: 5,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 4,
+    width: '48%',
+    height: 250,
+    backgroundColor: '#fff',
+    borderRadius: 8,
     overflow: 'hidden',
+    marginBottom: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3, // For Android shadow
   },
   productImage: {
     width: '100%',
-    height: 200, // Larger image height
+    height: '70%', // Adjust image height to leave space for text
     resizeMode: 'cover',
   },
-  cardTextContainer: {
-    padding: 12,
+  cardContent: {
+    padding: 8,
   },
   cardText: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
-    color: '#1C1C1E',
+    color: '#333',
+    fontFamily: 'OpenSans-Regular',
     marginBottom: 4,
   },
-  priceText: {
-    fontSize: 14,
-    color: '#007AFF', // Vibrant blue for price
-    fontWeight: '500',
-  },
-  text: {
+  locationText: {
+    fontSize: 12,
+    color: '#666',
     fontFamily: 'OpenSans-Regular',
-    color: 'black',
   },
-});
+  star:{
+    color:'#FFD700',
+  },
+  starContainer:{
+    flexDirection:'row',
+    marginTop:5,
+  },
+  starText:{
+    color:'gray',
+    fontSize:12
+  },
+};
 
 export default styles;

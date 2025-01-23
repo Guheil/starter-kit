@@ -111,6 +111,7 @@ image: {
   },
 // Products
 productContainer: {
+  marginBottom:100,
 },
 
 productGrid: {
@@ -118,25 +119,49 @@ productGrid: {
   flexWrap: 'wrap', 
   justifyContent: 'space-between', 
 },
-productImage:{
-  width:'100%',
-  height:'100%',
-resizeMode:'cover'
-},
 card: {
   width: '48%',
-  height:200,
+  height: 250,
   backgroundColor: '#fff',
   borderRadius: 8,
-  overflow:'hidden',
+  overflow: 'hidden',
   marginBottom: 12,
-
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.1,
+  shadowRadius: 4,
+  elevation: 3, // For Android shadow
 },
-
+productImage: {
+  width: '100%',
+  height: '70%', // Adjust image height to leave space for text
+  resizeMode: 'cover',
+},
+cardContent: {
+  padding: 8,
+  
+},
+star:{
+  color:'#FFD700',
+},
+starContainer:{
+  flexDirection:'row',
+  marginTop:5,
+},
+starText:{
+  color:'gray',
+  fontSize:12
+},
 cardText: {
-  fontSize: 16,
-  textAlign: 'center',
+  fontSize: 14,
+  fontWeight: '600',
   color: '#333',
+  fontFamily: 'OpenSans-Regular',
+  marginBottom: 4,
+},
+locationText: {
+  fontSize: 12,
+  color: '#666',
   fontFamily: 'OpenSans-Regular',
 },
 
