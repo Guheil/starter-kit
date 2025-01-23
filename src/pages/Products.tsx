@@ -33,7 +33,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/meme.glb'),
-    shopLocation: 'Bacnotan, La Union',
+    shopLocation: 'San Juan, La Union',
     rating: 4.9, 
   },
   {
@@ -48,11 +48,11 @@ const sampleProducts = [
   },
   {
     id: 4,
-    name: 'Furniture',
+    name: 'Good Tree',
     price: 149.99,
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'),
+    model3d: require('../assets/3d-assets/decorative_tree.glb'),
     shopLocation: 'Bacnotan, La Union', 
     rating: 4.9,
   },
