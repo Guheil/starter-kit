@@ -180,12 +180,13 @@ applyButtonText: {
 },
 noResultsText: {
   fontSize: 18,
-  fontWeight: 'bold',
+  fontFamily: 'OpenSans-Bold',
   color: '#333',
   marginBottom: 10,
 },
 noResultsSubtext: {
   fontSize: 14,
+  fontFamily: 'OpenSans-Regular',
   color: '#666',
 },
 });
