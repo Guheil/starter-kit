@@ -2,31 +2,11 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const { width } = Dimensions.get('window');
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
-<<<<<<< HEAD
-    flex: 1,
-    backgroundColor: '#f8f8f8',
-  },
-  content: {
-    flex: 1,
-    padding: 16,
-  },
-  searchBarContainer: {
-    marginBottom: 16,
-  },
-  searchBar: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    backgroundColor: '#fff',
-    color: '#333',
-  },
-=======
   flex: 1,
   backgroundColor: '#fff',
+
 },
 content: {
   flex: 1,
@@ -128,7 +108,6 @@ applyButtonText: {
   textAlign: 'center',
   fontWeight: '500',
 },
->>>>>>> b8793dddf2b2e45485fa5896905873d68b245b00
   productContainer: {
     flex: 1,
   },
@@ -136,15 +115,10 @@ applyButtonText: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    paddingBottom: 20,
   },
   card: {
-<<<<<<< HEAD
-    width: '48%',
-    height: 250,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-=======
-    width: (width - 43) / 2, // Responsive width calculation
+    width: (width - 43) / 2,
     backgroundColor: '#FFFFFF',
     borderRadius: 5,
     marginBottom: 10,
@@ -153,36 +127,33 @@ applyButtonText: {
     shadowOpacity: 0.1,
     shadowRadius: 6,
     elevation: 4,
->>>>>>> b8793dddf2b2e45485fa5896905873d68b245b00
     overflow: 'hidden',
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3, // For Android shadow
   },
   productImage: {
     width: '100%',
-    height: '70%', // Adjust image height to leave space for text
+    height: 200, 
     resizeMode: 'cover',
   },
-  cardContent: {
-    padding: 8,
+  cardTextContainer: {
+    padding: 12,
   },
   cardText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '600',
-    color: '#333',
-    fontFamily: 'OpenSans-Regular',
+    color: '#1C1C1E',
     marginBottom: 4,
-  },
-  locationText: {
-    fontSize: 12,
-    color: '#666',
     fontFamily: 'OpenSans-Regular',
   },
-  star:{
+  priceText: {
+    fontSize: 14,
+    color: '#007AFF', // Vibrant blue for price
+    fontWeight: '500',
+  },
+  text: {
+    fontFamily: 'OpenSans-Regular',
+    color: 'black',
+  },
+   star:{
     color:'#FFD700',
   },
   starContainer:{
@@ -193,6 +164,6 @@ applyButtonText: {
     color:'gray',
     fontSize:12
   },
-};
+});
 
 export default styles;

@@ -12,37 +12,19 @@ import {
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import styles from '../assets/style/productStyle';
-<<<<<<< HEAD
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-=======
-import { faCaretDown, faCheckCircle, faCheckSquare, faCircle, faDotCircle, faSearch, faSliders, faSquare, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCheckCircle, faCheckSquare, faCircle, faDotCircle, faSearch, faSliders, faSquare, faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
 
->>>>>>> b8793dddf2b2e45485fa5896905873d68b245b00
 
 const sampleProducts = [
   {
     id: 1,
     name: 'Sukang Iloco',
+    price: 99.99,
     description: 'This is a detailed description of product 1.',
-<<<<<<< HEAD
-    image: require('../assets/img/food.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    location: 'Bacnotan',
-    rating: '4.8', // Add rating
-  },
-  {
-    id: 2,
-    name: 'Furniture',
-    description: 'This is a detailed description of product 2.',
-    image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    location: 'San Juan',
-    rating: '4.5', // Add rating
-=======
     image: require('../assets/img/product-images/sukang-iloco.png'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'), 
     shopLocation: 'Bacnotan, La Union',
+    rating: 4.9,
   },
   {
     id: 2,
@@ -51,7 +33,8 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/meme.glb'),
-    shopLocation: 'Bacnotan, La Union', 
+    shopLocation: 'Bacnotan, La Union',
+    rating: 4.9, 
   },
   {
     id: 3,
@@ -61,6 +44,7 @@ const sampleProducts = [
     image: require('../assets/img/product-images/basi-wine.jpg'),
     model3d: require('../assets/3d-assets/basi-wine.glb'),
     shopLocation: 'Bacnotan, La Union', 
+    rating: 4.9,
   },
   {
     id: 4,
@@ -70,6 +54,7 @@ const sampleProducts = [
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
     shopLocation: 'Bacnotan, La Union', 
+    rating: 4.9,
   },
   {
     id: 5,
@@ -79,6 +64,7 @@ const sampleProducts = [
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
     shopLocation: 'Bacnotan, La Union',
+    rating: 4.9,
   },
   {
     id: 6,
@@ -88,9 +74,8 @@ const sampleProducts = [
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
     shopLocation: 'Bacnotan, La Union', 
->>>>>>> b8793dddf2b2e45485fa5896905873d68b245b00
+    rating: 4.9,
   },
-  // Add more products with ratings
 ];
 
 const priceRanges = [
@@ -275,18 +260,9 @@ const Products = ({ navigation }) => {
                 style={styles.card}
                 onPress={() => navigation.navigate('ProductDetails', { product })}
               >
-<<<<<<< HEAD
-                <Image
-                  source={product.image}
-                  style={styles.productImage}
-                />
-                <View style={styles.cardContent}>
-=======
                 <Image source={product.image} style={styles.productImage} />
                 <View style={styles.cardTextContainer}>
->>>>>>> b8793dddf2b2e45485fa5896905873d68b245b00
                   <Text style={styles.cardText}>{product.name}</Text>
-                  <Text style={styles.locationText}>{product.location}</Text>
                   <View style={styles.starContainer}>
                     <FontAwesomeIcon
                       icon={faStar} // FontAwesome icon

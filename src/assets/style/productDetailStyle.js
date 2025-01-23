@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     // Typography improvements
     productTitle: {
         fontSize: 24,
-        fontWeight: 'bold',
+        fontFamily: 'OpenSans-Bold',
         marginBottom: 10,
         color: '#333', // Slightly softer black for readability
     },
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     productPrice: {
         fontSize: 20,
         color: '#007AFF',
+        fontFamily: 'OpenSans-Regular',
         marginBottom: 15,
         fontWeight: '600', // Semi-bold for emphasis
     },
@@ -58,12 +59,13 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginLeft: 10,
         fontWeight: '500', // Medium weight
+        fontFamily: 'OpenSans-Regular',
     },
 
     // Section title with more visual hierarchy
     sectionTitle: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontFamily: 'OpenSans-Bold',
         marginTop: 20,
         marginBottom: 10,
         color: '#333',
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
         color: '#444',
         lineHeight: 24,
         textAlign: 'justify', // More even text distribution
+        fontFamily: 'OpenSans-Regular',
     },
 
     // Location container with enhanced visual design
@@ -97,6 +100,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#007AFF',
         flex: 1, // Allow text to take available space
+        fontFamily: 'OpenSans-Regular',
     },
 
     // Details grid with improved layout and spacing
@@ -127,6 +131,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         flex: 1, // Allow text to expand
         color: '#666',
+        fontFamily: 'OpenSans-Regular',
     },
 
     // Improved close button with more modern design
@@ -150,7 +155,7 @@ const styles = StyleSheet.create({
         color: 'white',
         marginLeft: 5,
         fontSize: 16,
-        fontWeight: '500', // Medium weight
+        fontFamily: 'OpenSans-Regular',
     },
 
     // New responsive text styles
