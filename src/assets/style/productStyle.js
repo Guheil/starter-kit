@@ -171,6 +171,23 @@ applyButtonText: {
     color:'gray',
     fontSize:12
   },
+  noResultsContainer: {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingVertical: 50,
+  width: '100%',
+},
+noResultsText: {
+  fontSize: 18,
+  fontWeight: 'bold',
+  color: '#333',
+  marginBottom: 10,
+},
+noResultsSubtext: {
+  fontSize: 14,
+  color: '#666',
+},
 });
 
 export default styles;

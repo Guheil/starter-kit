@@ -12,8 +12,18 @@ import {
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import styles from '../assets/style/productStyle';
-import { faCaretDown, faCheckCircle, faCheckSquare, faCircle, faDotCircle, faSearch, faSliders, faSquare, faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
-
+import {
+  faCaretDown,
+  faCheckCircle,
+  faCheckSquare,
+  faCircle,
+  faDotCircle,
+  faSearch,
+  faSliders,
+  faSquare,
+  faStar,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
 
 const sampleProducts = [
   {
@@ -22,7 +32,7 @@ const sampleProducts = [
     price: 99.99,
     description: 'This is a detailed description of product 1.',
     image: require('../assets/img/product-images/sukang-iloco.png'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), 
+    model3d: require('../assets/3d-assets/sukangiloco.glb'),
     shopLocation: 'Bacnotan, La Union',
     rating: 4.9,
   },
@@ -34,7 +44,7 @@ const sampleProducts = [
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/meme.glb'),
     shopLocation: 'San Juan, La Union',
-    rating: 4.9, 
+    rating: 4.9,
   },
   {
     id: 3,
@@ -43,7 +53,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/product-images/basi-wine.jpg'),
     model3d: require('../assets/3d-assets/basi-wine.glb'),
-    shopLocation: 'Bacnotan, La Union', 
+    shopLocation: 'Bacnotan, La Union',
     rating: 4.9,
   },
   {
@@ -53,7 +63,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/decorative_tree.glb'),
-    shopLocation: 'Bacnotan, La Union', 
+    shopLocation: 'Bacnotan, La Union',
     rating: 4.9,
   },
   {
@@ -73,7 +83,7 @@ const sampleProducts = [
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
     model3d: require('../assets/3d-assets/sukangiloco.glb'),
-    shopLocation: 'Bacnotan, La Union', 
+    shopLocation: 'Bacnotan, La Union',
     rating: 4.9,
   },
 ];
@@ -124,6 +134,7 @@ const Products = ({ navigation }) => {
         return filtered;
     }
   };
+
   const togglePriceFilter = (range) => {
     setSelectedPrices(prev =>
       prev.some(r => r.label === range.label)
@@ -131,6 +142,7 @@ const Products = ({ navigation }) => {
         : [...prev, range]
     );
   };
+
   const resetFilters = () => {
     setSelectedPrices([]);
     setSelectedLocation('');
@@ -254,27 +266,34 @@ const Products = ({ navigation }) => {
 
         <ScrollView style={styles.productContainer} showsVerticalScrollIndicator={false}>
           <View style={styles.productGrid}>
-            {filteredProducts.map((product) => (
-              <TouchableOpacity
-                key={product.id}
-                style={styles.card}
-                onPress={() => navigation.navigate('ProductDetails', { product })}
-              >
-                <Image source={product.image} style={styles.productImage} />
-                <View style={styles.cardTextContainer}>
-                  <Text style={styles.cardText}>{product.name}</Text>
-                  <Text style={styles.cardTextLocation}>{product.shopLocation}</Text>
-                  <View style={styles.starContainer}>
-                    <FontAwesomeIcon
-                      icon={faStar} // FontAwesome icon
-                      size={15}
-                      style={styles.star}
-                    />
-                    <Text style={styles.starText}>{product.rating}</Text>
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <TouchableOpacity
+                  key={product.id}
+                  style={styles.card}
+                  onPress={() => navigation.navigate('ProductDetails', { product })}
+                >
+                  <Image source={product.image} style={styles.productImage} />
+                  <View style={styles.cardTextContainer}>
+                    <Text style={styles.cardText}>{product.name}</Text>
+                    <Text style={styles.cardTextLocation}>{product.shopLocation}</Text>
+                    <View style={styles.starContainer}>
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        size={15}
+                        style={styles.star}
+                      />
+                      <Text style={styles.starText}>{product.rating}</Text>
+                    </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            ))}
+                </TouchableOpacity>
+              ))
+            ) : (
+              <View style={styles.noResultsContainer}>
+                <Text style={styles.noResultsText}>No products found</Text>
+                <Text style={styles.noResultsSubtext}>Try adjusting your search or filters</Text>
+              </View>
+            )}
           </View>
         </ScrollView>
       </View>
