@@ -144,6 +144,13 @@ applyButtonText: {
     marginBottom: 4,
     fontFamily: 'OpenSans-Regular',
   },
+  cardTextLocation: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#1C1C1E',
+    marginBottom: 4,
+    fontFamily: 'OpenSans-Light',
+  },
   priceText: {
     fontSize: 14,
     color: '#007AFF', // Vibrant blue for price

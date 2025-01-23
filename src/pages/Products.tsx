@@ -263,6 +263,7 @@ const Products = ({ navigation }) => {
                 <Image source={product.image} style={styles.productImage} />
                 <View style={styles.cardTextContainer}>
                   <Text style={styles.cardText}>{product.name}</Text>
+                  <Text style={styles.cardTextLocation}>{product.shopLocation}</Text>
                   <View style={styles.starContainer}>
                     <FontAwesomeIcon
                       icon={faStar} // FontAwesome icon
