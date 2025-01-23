@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PaperProvider } from 'react-native-paper';
 import { theme } from './src/components/Theme';
 import TabNavigator from './src/navigation/Tab'; // Import Tab Navigator
+import ProductDetails from './src/pages/ProductDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,8 @@ const App: React.FC = () => {
             component={TabNavigator}
             options={{ headerShown: false }} // Hides the header for the Tab Navigator
           />
+          <Stack.Screen name="TabNavigator" component={TabNavigator} />
+          <Stack.Screen name="ProductDetails" component={ProductDetails} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

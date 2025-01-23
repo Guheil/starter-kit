@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Corr
 import { faHome, faCog, faMap, faBox } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import Home from '../pages/Home';
 import Products from '../pages/Products'
+import ProductDetails from '../pages/ProductDetails'; 
 
 function SettingsScreen() {
   return (
@@ -49,6 +50,7 @@ const TabNavigator: React.FC = () => {
       }}
     >
       {/* Home Screen Tab */}
+      
       <Tab.Screen
         options={{
           headerShown: false,

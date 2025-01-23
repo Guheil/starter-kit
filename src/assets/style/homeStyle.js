@@ -51,13 +51,12 @@ image: {
   overflow: 'hidden', 
 },
 
-//features
   featuredContainer:{
   },
   square1:{
     backgroundColor:'gray',
     borderRadius:10,
-    width:316,
+    width:'100%',
     height:100,
     overflow:'hidden'
   },
@@ -71,7 +70,6 @@ image: {
     justifyContent:'space-between',
     width:'100%',
     flexWrap:'wrap',
-   
   },
   squares:{
     flexDirection: 'column',
