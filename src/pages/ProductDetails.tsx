@@ -12,6 +12,12 @@ import {
 import { ViroARSceneNavigator, ViroARScene } from '@viro-community/react-viro';
 import { Viro3DObject, ViroAmbientLight, ViroNode, ViroTrackingStateConstants } from '@viro-community/react-viro';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faAmbulance, faCaretDown, faLocation, faTachometerAverage, faWeightScale } from '@fortawesome/free-solid-svg-icons';
+import { faCameraRetro } from '@fortawesome/free-solid-svg-icons/faCameraRetro';
+import { faWeight } from '@fortawesome/free-solid-svg-icons/faWeight';
+import { faWeightHanging } from '@fortawesome/free-solid-svg-icons/faWeightHanging';
+import { faRuler } from '@fortawesome/free-solid-svg-icons/faRuler';
 
 interface ProductARSceneProps {
     product: any;
@@ -102,7 +108,11 @@ const ProductDetails = ({ route, navigation }) => {
 
                     {/* AR View Button */}
                     <TouchableOpacity style={styles.arButton} onPress={() => setShowAR(true)}>
-                        <Icon name="cube-outline" size={20} color="#FFF" />
+                                      <FontAwesomeIcon
+                                        icon={faCameraRetro} 
+                                        color='white'
+                                        size={24}
+                                      />
                         <Text style={styles.arButtonText}>View in AR</Text>
                     </TouchableOpacity>
 
@@ -113,7 +123,11 @@ const ProductDetails = ({ route, navigation }) => {
                     {/* Shop Location */}
                     <Text style={styles.sectionTitle}>Shop Location</Text>
                     <TouchableOpacity style={styles.locationContainer} onPress={openMaps}>
-                        <Icon name="location-outline" size={20} color="#007AFF" />
+                        <FontAwesomeIcon
+                            icon={faLocation}
+                            color='#007AFF'
+                            size={24}
+                        />
                         <Text style={styles.locationText}>{product.shopLocation}</Text>
                     </TouchableOpacity>
 
@@ -121,15 +135,27 @@ const ProductDetails = ({ route, navigation }) => {
                     <Text style={styles.sectionTitle}>Product Details</Text>
                     <View style={styles.detailsGrid}>
                         <View style={styles.detailItem}>
-                            <Icon name="information-circle-outline" size={20} color="#007AFF" />
-                            <Text style={styles.detailText}>SKU: {product.sku}</Text>
+                            <FontAwesomeIcon
+                                icon={faCaretDown}
+                                color='#007AFF'
+                                size={24}
+                            />
+                            <Text style={styles.detailText}>Type: {product.sku}</Text>
                         </View>
                         <View style={styles.detailItem}>
-                            <Icon name="color-palette-outline" size={20} color="#007AFF" />
-                            <Text style={styles.detailText}>Color: {product.color}</Text>
+                            <FontAwesomeIcon
+                                icon={faWeightScale}
+                                color='#007AFF'
+                                size={20}
+                            />
+                            <Text style={styles.detailText}>Weight: {product.color}</Text>
                         </View>
                         <View style={styles.detailItem}>
-                            <Icon name="cube-outline" size={20} color="#007AFF" />
+                            <FontAwesomeIcon
+                                icon={faRuler}
+                                color='#007AFF'
+                                size={24}
+                            />
                             <Text style={styles.detailText}>Dimensions: {product.dimensions}</Text>
                         </View>
                     </View>
