@@ -23,7 +23,7 @@ interface ProductARSceneProps {
     product: any;
 }
 
-const ProductARScene: React.FC<ProductARSceneProps> = ({ product }) => {
+const ProductARScene: React.FC<ProductARSceneProps> = ({ product, onClose }) => {
     const [isTracking, setIsTracking] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [position] = useState<[number, number, number]>([0, 0, 0]);
@@ -60,7 +60,7 @@ const ProductARScene: React.FC<ProductARSceneProps> = ({ product }) => {
                 <Viro3DObject
                     source={product.model3d}
                     type="GLB"
-                    position={[0, -0.19, 0]}
+                    position={[0, -0.19, -0.2]}
                     scale={scale}
                     rotation={rotation}
                     onError={onError}
@@ -84,10 +84,27 @@ const ProductDetails = ({ route, navigation }) => {
 
     if (showAR) {
         return (
-            <ViroARSceneNavigator
-                initialScene={{ scene: ProductARScene, passProps: { product } }}
-                style={{ flex: 1 }}
-            />
+            <View style={{ flex: 1 }}>
+                {/* AR Scene */}
+                <ViroARSceneNavigator
+                    initialScene={{
+                        scene: ProductARScene,
+                        passProps: {
+                            product,
+                            onClose: () => setShowAR(false),
+                        },
+                    }}
+                    style={{ flex: 1 }}
+                />
+                {/* Close Button */}
+                <TouchableOpacity
+                    style={styles.closeButton}
+                    onPress={() => setShowAR(false)}
+                >
+                    <FontAwesomeIcon icon={faCameraRetro} color="white" size={24} />
+                    <Text style={styles.closeButtonText}>Close</Text>
+                </TouchableOpacity>
+            </View>
         );
     }
 
