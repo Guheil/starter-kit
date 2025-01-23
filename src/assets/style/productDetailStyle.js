@@ -12,24 +12,22 @@ const styles = StyleSheet.create({
 
     productImage: {
         width: '100%',
-        height: width * 0.75, // Responsive height based on screen width
-        resizeMode: 'cover', // Ensure image covers the area
+        height: width * 0.75, 
+        resizeMode: 'cover', 
     },
 
-    // Details container with improved layout
     detailsContainer: {
         padding: 15,
-        paddingBottom: 80, // Extra bottom padding for buttons
+        paddingBottom: 80, 
     },
 
-    // Typography improvements
     productTitle: {
         fontSize: 24,
         fontFamily: 'OpenSans-Bold',
         marginBottom: 10,
-        color: '#333', // Slightly softer black for readability
+        color: '#333', 
     },
-
+    
     productPrice: {
         fontSize: 20,
         color: '#007AFF',

@@ -173,7 +173,7 @@ const Products = ({ navigation }) => {
             style={styles.filterButton}
             onPress={() => setShowFilters(true)}
           >
-            <FontAwesomeIcon icon={faSliders} size={20} color="#333" />
+            <FontAwesomeIcon icon={faSliders} size={20} color="#808080" />
           </TouchableOpacity>
         </View>
 
