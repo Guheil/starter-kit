@@ -20,8 +20,8 @@ interface ProductARSceneProps {
 const ProductARScene: React.FC<ProductARSceneProps> = ({ product }) => {
     const [isTracking, setIsTracking] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [position] = useState<[number, number, number]>([0, 0, -1]);
-    const [scale] = useState<[number, number, number]>([0.6, 0.6, 0.6]);
+    const [position] = useState<[number, number, number]>([0, 0, 0]);
+    const [scale] = useState<[number, number, number]>([0.15, 0.15, 0.15]);
     const [rotation, setRotation] = useState<[number, number, number]>([0, 0, 0]);
 
     const onInitialized = (state: string) => {
@@ -54,7 +54,7 @@ const ProductARScene: React.FC<ProductARSceneProps> = ({ product }) => {
                 <Viro3DObject
                     source={product.model3d}
                     type="GLB"
-                    position={[0, 0, 0]}
+                    position={[0, -0.19, 0]}
                     scale={scale}
                     rotation={rotation}
                     onError={onError}

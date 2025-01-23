@@ -25,7 +25,7 @@ const sampleProducts = [
     price: 149.99,
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
-    model3d: require('../assets/3d-assets/sukangiloco.glb'), // Add the 3D model path
+    model3d: require('../assets/3d-assets/meme.glb'), // Add the 3D model path
   },
   {
     id: 3,
