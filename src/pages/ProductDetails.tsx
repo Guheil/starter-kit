@@ -4,7 +4,6 @@ import {
     ScrollView,
     TouchableOpacity,
     Text,
-    StyleSheet,
     View,
     Image,
     Linking,
@@ -12,15 +11,29 @@ import {
 import { ViroARSceneNavigator, ViroARScene } from '@viro-community/react-viro';
 import { Viro3DObject, ViroAmbientLight, ViroNode, ViroTrackingStateConstants } from '@viro-community/react-viro';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faAmbulance, faCaretDown, faLocation, faTachometerAverage, faWeightScale } from '@fortawesome/free-solid-svg-icons';
-import { faCameraRetro } from '@fortawesome/free-solid-svg-icons/faCameraRetro';
-import { faWeight } from '@fortawesome/free-solid-svg-icons/faWeight';
-import { faWeightHanging } from '@fortawesome/free-solid-svg-icons/faWeightHanging';
-import { faRuler } from '@fortawesome/free-solid-svg-icons/faRuler';
+import {
+    faCameraRetro,
+    faLocation,
+    faCaretDown,
+    faWeightScale,
+    faRuler
+} from '@fortawesome/free-solid-svg-icons';
 import styles from '../assets/style/productDetailStyle';
 
+// Add proper type definitions
 interface ProductARSceneProps {
     product: any;
+    onClose: () => void;
+    sceneNavigator?: any; 
+}
+
+interface ProductDetailsProps {
+    route: {
+        params: {
+            product: any;
+        };
+    };
+    navigation: any;
 }
 
 const ProductARScene: React.FC<ProductARSceneProps> = ({ product, onClose }) => {
@@ -28,7 +41,7 @@ const ProductARScene: React.FC<ProductARSceneProps> = ({ product, onClose }) => 
     const [isLoading, setIsLoading] = useState(true);
     const [position] = useState<[number, number, number]>([0, 0, 0]);
     const [scale] = useState<[number, number, number]>([0.15, 0.15, 0.15]);
-    const [rotation, setRotation] = useState<[number, number, number]>([0, 0, 0]);
+    const [rotation] = useState<[number, number, number]>([0, 0, 0]);
 
     const onInitialized = (state: string) => {
         if (state === ViroTrackingStateConstants.TRACKING_NORMAL) {
@@ -72,7 +85,7 @@ const ProductARScene: React.FC<ProductARSceneProps> = ({ product, onClose }) => 
     );
 };
 
-const ProductDetails = ({ route, navigation }) => {
+const ProductDetails: React.FC<ProductDetailsProps> = ({ route, navigation }) => {
     const [showAR, setShowAR] = useState(false);
     const { product } = route.params;
 
@@ -85,18 +98,18 @@ const ProductDetails = ({ route, navigation }) => {
     if (showAR) {
         return (
             <View style={{ flex: 1 }}>
-                {/* AR Scene */}
                 <ViroARSceneNavigator
                     initialScene={{
-                        scene: ProductARScene,
-                        passProps: {
-                            product,
-                            onClose: () => setShowAR(false),
-                        },
+                        scene: (viroProps: any) => (
+                            <ProductARScene
+                                {...viroProps}
+                                product={product}
+                                onClose={() => setShowAR(false)}
+                            />
+                        ),
                     }}
                     style={{ flex: 1 }}
                 />
-                {/* Close Button */}
                 <TouchableOpacity
                     style={styles.closeButton}
                     onPress={() => setShowAR(false)}
@@ -111,68 +124,42 @@ const ProductDetails = ({ route, navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                {/* Product Image */}
                 <Image
                     source={product.image}
                     style={styles.productImage}
                     resizeMode="cover"
                 />
 
-                {/* Product Details */}
                 <View style={styles.detailsContainer}>
                     <Text style={styles.productTitle}>{product.name}</Text>
-                    <Text style={styles.productPrice}>₱{product.price.toFixed(2)}</Text>
+                    <Text style={styles.productPrice}>₱{product.price?.toFixed(2)}</Text>
 
-                    {/* AR View Button */}
                     <TouchableOpacity style={styles.arButton} onPress={() => setShowAR(true)}>
-                                      <FontAwesomeIcon
-                                        icon={faCameraRetro} 
-                                        color='white'
-                                        size={24}
-                                      />
+                        <FontAwesomeIcon icon={faCameraRetro} color='white' size={24} />
                         <Text style={styles.arButtonText}>View in AR</Text>
                     </TouchableOpacity>
 
-                    {/* Description */}
                     <Text style={styles.sectionTitle}>Description</Text>
                     <Text style={styles.productDescription}>{product.description}</Text>
 
-                    {/* Shop Location */}
                     <Text style={styles.sectionTitle}>Shop Location</Text>
                     <TouchableOpacity style={styles.locationContainer} onPress={openMaps}>
-                        <FontAwesomeIcon
-                            icon={faLocation}
-                            color='#007AFF'
-                            size={24}
-                        />
+                        <FontAwesomeIcon icon={faLocation} color='#007AFF' size={24} />
                         <Text style={styles.locationText}>{product.shopLocation}</Text>
                     </TouchableOpacity>
 
-                    {/* Additional Product Details */}
                     <Text style={styles.sectionTitle}>Product Details</Text>
                     <View style={styles.detailsGrid}>
                         <View style={styles.detailItem}>
-                            <FontAwesomeIcon
-                                icon={faCaretDown}
-                                color='#007AFF'
-                                size={24}
-                            />
+                            <FontAwesomeIcon icon={faCaretDown} color='#007AFF' size={24} />
                             <Text style={styles.detailText}>Type: {product.sku}</Text>
                         </View>
                         <View style={styles.detailItem}>
-                            <FontAwesomeIcon
-                                icon={faWeightScale}
-                                color='#007AFF'
-                                size={20}
-                            />
+                            <FontAwesomeIcon icon={faWeightScale} color='#007AFF' size={20} />
                             <Text style={styles.detailText}>Weight: {product.color}</Text>
                         </View>
                         <View style={styles.detailItem}>
-                            <FontAwesomeIcon
-                                icon={faRuler}
-                                color='#007AFF'
-                                size={24}
-                            />
+                            <FontAwesomeIcon icon={faRuler} color='#007AFF' size={24} />
                             <Text style={styles.detailText}>Dimensions: {product.dimensions}</Text>
                         </View>
                     </View>
@@ -181,6 +168,5 @@ const ProductDetails = ({ route, navigation }) => {
         </SafeAreaView>
     );
 };
-
 
 export default ProductDetails;
