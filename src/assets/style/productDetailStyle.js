@@ -7,10 +7,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFF',
-        position: 'relative', // Added for absolute positioning
+        position: 'relative', 
     },
 
-    // Image styles with responsive sizing
     productImage: {
         width: '100%',
         height: width * 0.75, // Responsive height based on screen width
