@@ -37,7 +37,7 @@ const sampleProducts = [
   },
   {
     id: 2,
-    name: 'Meme Test',
+    name: 'Cutie Patootie Hamster',
     price: 149.99,
     description: 'This is a detailed description of product 2.',
     image: require('../assets/img/furniture.jpg'),
