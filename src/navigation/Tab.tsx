@@ -4,16 +4,17 @@ import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-nati
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHome, faCog, faMap, faBox, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Home from '../pages/Home';
-import Products from '../pages/Products'
+import Products from '../pages/Products';
+import Settings from '../pages/Settings';
 import ProductDetails from '../pages/ProductDetails';
 
-function SettingsScreen() {
-  return (
-    <View style={styles.screen}>
-      <Text style={styles.text}>Settings Screen</Text>
-    </View>
-  );
-}
+// function SettingsScreen() {
+//   return (
+//     <View style={styles.screen}>
+//       <Text style={styles.text}>Settings Screen</Text>
+//     </View>
+//   );
+// }
 
 function Map() {
   return (
@@ -124,7 +125,7 @@ const TabNavigator: React.FC = () => {
             ),
           }}
           name="Settings"
-          component={SettingsScreen}
+          component={Settings}
         />
         <Tab.Screen
           options={{
