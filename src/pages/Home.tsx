@@ -10,11 +10,47 @@ import {
 } from 'react-native';
 import styles from '../assets/style/homeStyle.js';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Correct FontAwesome import
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faMapMarkedAlt, faStar, faTicketAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home: React.FC = () => {
   const [text, onChangeText] = React.useState('');
+
+  const events = [
+    {
+      id: 1,
+      name: 'Craft Fair Extravaganza',
+      description: 'Annual showcase of local artisan crafts and handmade goods',
+      location: 'Bacnotan Town Center',
+      date: 'May 15, 2024',
+      time: '10:00 AM - 6:00 PM',
+      price: 'Free Entry',
+      image: require('../assets/img/events/craft-fair.jpg'),
+      category: 'Handcraft'
+    },
+    {
+      id: 2,
+      name: 'Culinary Arts Festival',
+      description: 'Celebrating local cuisine with cooking demos and tastings',
+      location: 'San Fernando Plaza',
+      date: 'June 20, 2024',
+      time: '12:00 PM - 9:00 PM',
+      price: 'Php 250',
+      image: require('../assets/img/events/culinary-arts.png'),
+      category: 'Food'
+    },
+    {
+      id: 3,
+      name: 'Pottery Master Class',
+      description: 'Hands-on workshop with renowned local ceramic artists',
+      location: 'Aringay Community Hall',
+      date: 'July 5, 2024',
+      time: '2:00 PM - 5:00 PM',
+      price: 'Php 500',
+      image: require('../assets/img/events/pottery.jpg'),
+      category: 'Pottery'
+    }
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -88,7 +124,7 @@ const Home: React.FC = () => {
               <Text style={styles.discoverText}>Bacnotan</Text>
             </View>
           </ScrollView>
-
+          
           {/* Products Section */}
           <View style={styles.productContainer}>
             <View style={styles.productGrid}>
@@ -210,6 +246,40 @@ const Home: React.FC = () => {
                     <Text style={styles.starText}>4.4</Text>
                   </View>
                 </View>
+              </View>
+              <View style={styles.eventsContainer}>
+                <Text style={styles.sectionTitle}>Upcoming Events</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                  {events.map((event) => (
+                    <TouchableOpacity key={event.id} style={styles.eventCardLarge}>
+                      <Image source={event.image} style={styles.eventImageLarge} />
+                      <View style={styles.eventOverlay}>
+                        <Text style={styles.eventCategory}>{event.category}</Text>
+                      </View>
+                      <View style={styles.eventDetailsLarge}>
+                        <Text style={styles.eventNameLarge}>{event.name}</Text>
+                        <Text style={styles.eventDescriptionLarge}>{event.description}</Text>
+                        
+                        <View style={styles.eventInfoRowLarge}>
+                          <View style={styles.eventInfoItemLarge}>
+                            <FontAwesomeIcon icon={faCalendar} size={14} color="#ffd700" />
+                            <Text style={styles.eventInfoTextLarge}>{event.date}</Text>
+                          </View>
+                          <View style={styles.eventInfoItemLarge}>
+                            <FontAwesomeIcon icon={faMapMarkedAlt} size={14} color="#ffd700" />
+                            <Text style={styles.eventInfoTextLarge}>{event.location}</Text>
+                          </View>
+                        </View>
+
+                        <View style={styles.eventBottomRowLarge}>
+                          <TouchableOpacity style={styles.eventButtonLarge}>
+                            <Text style={styles.eventButtonTextLarge}>View Details</Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
               </View>
             </View>
           </View>

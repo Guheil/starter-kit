@@ -164,7 +164,105 @@ locationText: {
   color: '#666',
   fontFamily: 'OpenSans-Regular',
 },
-
+ eventsContainer: {
+    marginVertical: 15,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 10,
+    fontFamily: 'OpenSans-Semibold',
+    color: 'black',
+  },
+  eventCardLarge: {
+    width: 300,
+    height: 400,
+    marginRight: 15,
+    borderRadius: 15,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+    overflow: 'hidden',
+    paddingBottom: 20,
+    marginBottom: 14,
+  },
+  eventImageLarge: {
+    width: '100%',
+    height: '60%',
+    resizeMode: 'cover',
+  },
+  eventOverlay: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 60,
+  },
+  eventCategory: {
+    color: '#fff',
+    fontSize: 12,
+    fontFamily: 'OpenSans-Semibold',
+  },
+  eventDetailsLarge: {
+    padding: 15,
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  eventNameLarge: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#333',
+    fontFamily: 'OpenSans-Bold',
+    marginBottom: 8,
+  },
+  eventDescriptionLarge: {
+    fontSize: 14,
+    color: '#666',
+    fontFamily: 'OpenSans-Regular',
+    marginBottom: 12,
+  },
+  eventInfoRowLarge: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  eventInfoItemLarge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  eventInfoTextLarge: {
+    marginLeft: 8,
+    color: '#333',
+    fontSize: 13,
+    fontFamily: 'OpenSans-Regular',
+  },
+  eventBottomRowLarge: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  eventPriceLarge: {
+    marginLeft: 8,
+    color: '#ffd700',
+    fontSize: 14,
+    fontFamily: 'OpenSans-Semibold',
+  },
+  eventButtonLarge: {
+    backgroundColor: '#ffd700',
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    borderRadius: 25,
+  },
+  eventButtonTextLarge: {
+    color: '#fff',
+    fontFamily: 'OpenSans-Semibold',
+    fontSize: 14,
+  },
 });
 
 export default styles;
