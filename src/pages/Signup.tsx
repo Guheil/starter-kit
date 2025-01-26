@@ -11,12 +11,14 @@ import {
     ScrollView
 } from 'react-native';
 import styles from '../assets/style/signupStyle'; // We'll create this style file
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, ParamListBase } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUser, faLock, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
+
 const SignupScreen: React.FC = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');

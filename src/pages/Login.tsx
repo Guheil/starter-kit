@@ -9,13 +9,15 @@ import {
     KeyboardAvoidingView,
     Platform
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../assets/style/loginStyle';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const LoginScreen: React.FC = () => {
-    const navigation = useNavigation();
+    
+    const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
