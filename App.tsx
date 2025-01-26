@@ -5,9 +5,8 @@ import { PaperProvider } from 'react-native-paper';
 import { theme } from './src/components/Theme';
 import TabNavigator from './src/navigation/Tab';
 import ProductDetails from './src/pages/ProductDetails';
-import LoginScreen from './src/pages/Login'; // Import Login Screen
-import SignupScreen from './src/pages/Signup'; // Import Signup Screen
-
+import LoginScreen from './src/pages/Login'; 
+import SignupScreen from './src/pages/Signup'; 
 const Stack = createNativeStackNavigator();
 
 const App: React.FC = () => {
