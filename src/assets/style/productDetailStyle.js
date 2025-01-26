@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     
     productPrice: {
         fontSize: 20,
-        color: '#007AFF',
+        color: '#FDD700',
         fontFamily: 'OpenSans-Regular',
         marginBottom: 15,
         fontWeight: '600', // Semi-bold for emphasis
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginVertical: 15,
         padding: 12,
-        backgroundColor: '#007AFF',
+        backgroundColor: '#FDD700',
         borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
@@ -90,13 +90,13 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginVertical: 10,
         borderLeftWidth: 4,
-        borderLeftColor: '#007AFF', // Accent border
+        borderLeftColor: '#FDD700', // Accent border
     },
 
     locationText: {
         marginLeft: 10,
         fontSize: 16,
-        color: '#007AFF',
+        color: '#FDD700',
         flex: 1, // Allow text to take available space
         fontFamily: 'OpenSans-Regular',
     },

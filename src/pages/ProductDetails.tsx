@@ -144,22 +144,22 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ route, navigation }) =>
 
                     <Text style={styles.sectionTitle}>Shop Location</Text>
                     <TouchableOpacity style={styles.locationContainer} onPress={openMaps}>
-                        <FontAwesomeIcon icon={faLocation} color='#007AFF' size={24} />
+                        <FontAwesomeIcon icon={faLocation} color='#FDD700' size={24} />
                         <Text style={styles.locationText}>{product.shopLocation}</Text>
                     </TouchableOpacity>
 
                     <Text style={styles.sectionTitle}>Product Details</Text>
                     <View style={styles.detailsGrid}>
                         <View style={styles.detailItem}>
-                            <FontAwesomeIcon icon={faCaretDown} color='#007AFF' size={24} />
+                            <FontAwesomeIcon icon={faCaretDown} color='#FDD700' size={24} />
                             <Text style={styles.detailText}>Type: {product.sku}</Text>
                         </View>
                         <View style={styles.detailItem}>
-                            <FontAwesomeIcon icon={faWeightScale} color='#007AFF' size={20} />
+                            <FontAwesomeIcon icon={faWeightScale} color='#FDD700' size={20} />
                             <Text style={styles.detailText}>Weight: {product.color}</Text>
                         </View>
                         <View style={styles.detailItem}>
-                            <FontAwesomeIcon icon={faRuler} color='#007AFF' size={24} />
+                            <FontAwesomeIcon icon={faRuler} color='#FDD700' size={24} />
                             <Text style={styles.detailText}>Dimensions: {product.dimensions}</Text>
                         </View>
                     </View>
