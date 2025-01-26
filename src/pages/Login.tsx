@@ -7,7 +7,8 @@ import {
     SafeAreaView,
     Image,
     KeyboardAvoidingView,
-    Platform
+    Platform,
+    Alert
 } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -15,14 +16,37 @@ import styles from '../assets/style/loginStyle';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
+// Hardcoded account credentials
+const VALID_CREDENTIALS = {
+    email: 'gael@gmail.com',
+    password: 'produkto123'
+};
+
 const LoginScreen: React.FC = () => {
-    
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleLogin = () => {
-        navigation.navigate('Tabs');
+        const trimmedEmail = email.trim().toLowerCase();
+        const trimmedPassword = password.trim();
+
+        if (
+            trimmedEmail === VALID_CREDENTIALS.email &&
+            trimmedPassword === VALID_CREDENTIALS.password
+        ) {
+            setError('');
+            navigation.navigate('Tabs');
+        } else {
+            setError('Invalid email or password');
+
+            // Alert.alert(
+            //     'Login Failed',
+            //     'Invalid email or password. Please try again.',
+            //     [{ text: 'OK' }]
+            // );
+        }
     };
 
     const handleSignup = () => {
@@ -42,6 +66,12 @@ const LoginScreen: React.FC = () => {
                     />
                     <Text style={styles.appTitle}>Produkto Elyukal</Text>
                 </View>
+
+                {error ? (
+                    <View style={styles.errorContainer}>
+                        <Text style={styles.errorText}>{error}</Text>
+                    </View>
+                ) : null}
 
                 <View style={styles.formContainer}>
                     <View style={styles.inputContainer}>

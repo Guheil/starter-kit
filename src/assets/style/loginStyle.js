@@ -106,7 +106,22 @@ const loginSignupStyles = StyleSheet.create({
   loginLinkText: {
     fontFamily: 'OpenSans-Semibold',
     color: '#ffd700',
-  }
+  },
+   errorContainer: {
+    backgroundColor: 'rgba(255,0,0,0.1)',
+    padding: 10,
+    borderRadius: 5,
+    marginHorizontal: 20,
+    marginBottom: 15,
+    borderLeftWidth: 4,
+    borderLeftColor: 'red',
+  },
+  errorText: {
+    color: 'red',
+    fontFamily: 'OpenSans-Regular',
+    textAlign: 'center',
+  },
+
 });
 
 export default loginSignupStyles;
