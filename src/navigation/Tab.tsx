@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHome, faCog, faMap, faBox, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
+import Map from '../pages/Map';
 import Settings from '../pages/Settings';
 import ProductDetails from '../pages/ProductDetails';
 
@@ -16,13 +17,13 @@ import ProductDetails from '../pages/ProductDetails';
 //   );
 // }
 
-function Map() {
-  return (
-    <View style={styles.screen}>
-      <Text style={styles.text}>Map Screen</Text>
-    </View>
-  )
-}
+// function Map() {
+//   return (
+//     <View style={styles.screen}>
+//       <Text style={styles.text}>Map Screen</Text>
+//     </View>
+//   )
+// }
 
 const Tab = createBottomTabNavigator();
 const { width } = Dimensions.get('window');
