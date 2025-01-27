@@ -17,6 +17,7 @@
     "@react-navigation/native": "6.1",
     "@react-navigation/native-stack": "6.9",
     "@reactvision/react-viro": "^2.41.4",
+    "@rnmapbox/maps": "^10.1.33",
     "@viro-community/react-viro": "^2.41.1",
     "lucide-react-native": "^0.471.0",
     "react": "18.2.0",
