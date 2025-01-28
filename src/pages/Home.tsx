@@ -56,14 +56,15 @@ const Home: React.FC = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.content}>
-          {/* Search Bar */}
-          <View style={styles.searchBarContainer}>
+        <View style={styles.topContainer}>
+            {/* Search Bar */}
+            <View style={styles.searchBarContainer}>
             <TextInput
               style={styles.searchBar}
               onChangeText={onChangeText}
               value={text}
               placeholder="Enter Text..."
-              placeholderTextColor="gray"
+              placeholderTextColor="#F5F5F5"
             />
           </View>
 
@@ -88,6 +89,7 @@ const Home: React.FC = () => {
               </TouchableOpacity>
             </View>
           </ScrollView>
+        </View>
 
           {/* Featured Section */}
           <View style={styles.featuredContainer}>
@@ -112,6 +114,7 @@ const Home: React.FC = () => {
           </View>
 
           {/* Discover Section */}
+          <View style={styles.divider}></View>
           <ScrollView horizontal style={styles.discoverContainer}>
             <View style={styles.discoverWrapper}>
               <Text style={styles.discoverText}>Discover</Text>
@@ -129,7 +132,7 @@ const Home: React.FC = () => {
           <View style={styles.productContainer}>
             <View style={styles.productGrid}>
               {/* Card 1 */}
-              <View style={styles.card}>
+              <TouchableOpacity style={styles.card}>
                 <Image
                   style={styles.productImage}
                   source={require('../assets/img/handcraft.png')}
@@ -146,10 +149,10 @@ const Home: React.FC = () => {
                     <Text style={styles.starText}>4.8</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
 
               {/* Card 2 */}
-              <View style={styles.card}>
+              <TouchableOpacity style={styles.card}>
                 <Image
                   style={styles.productImage}
                   source={require('../assets/img/handcraft.png')}
@@ -163,13 +166,13 @@ const Home: React.FC = () => {
                       size={15}
                       style={styles.star}
                     />
-                    <Text style={styles.starText}>4.5</Text>
+                    <Text style={styles.starText}>4.8</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
 
               {/* Card 3 */}
-              <View style={styles.card}>
+              <TouchableOpacity style={styles.card}>
                 <Image
                   style={styles.productImage}
                   source={require('../assets/img/handcraft.png')}
@@ -183,13 +186,13 @@ const Home: React.FC = () => {
                       size={15}
                       style={styles.star}
                     />
-                    <Text style={styles.starText}>4.7</Text>
+                    <Text style={styles.starText}>4.8</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
 
               {/* Card 4 */}
-              <View style={styles.card}>
+              <TouchableOpacity style={styles.card}>
                 <Image
                   style={styles.productImage}
                   source={require('../assets/img/handcraft.png')}
@@ -203,13 +206,13 @@ const Home: React.FC = () => {
                       size={15}
                       style={styles.star}
                     />
-                    <Text style={styles.starText}>4.9</Text>
+                    <Text style={styles.starText}>4.8</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
 
               {/* Card 5 */}
-              <View style={styles.card}>
+              <TouchableOpacity style={styles.card}>
                 <Image
                   style={styles.productImage}
                   source={require('../assets/img/handcraft.png')}
@@ -223,13 +226,13 @@ const Home: React.FC = () => {
                       size={15}
                       style={styles.star}
                     />
-                    <Text style={styles.starText}>4.6</Text>
+                    <Text style={styles.starText}>4.8</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
 
               {/* Card 6 */}
-              <View style={styles.card}>
+              <TouchableOpacity style={styles.card}>
                 <Image
                   style={styles.productImage}
                   source={require('../assets/img/handcraft.png')}
@@ -243,11 +246,14 @@ const Home: React.FC = () => {
                       size={15}
                       style={styles.star}
                     />
-                    <Text style={styles.starText}>4.4</Text>
+                    <Text style={styles.starText}>4.8</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
+              
+              
               <View style={styles.eventsContainer}>
+              <View style={styles.divider}></View>
                 <Text style={styles.sectionTitle}>Upcoming Events</Text>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                   {events.map((event) => (

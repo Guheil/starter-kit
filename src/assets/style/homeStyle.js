@@ -2,11 +2,29 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor:'#F5EFE7'
+  },
+  divider:{
+    height:2,
+    borderColor:'#CCCCCC',
+    borderWidth:1,
+    marginHorizontal:20,
+    marginTop:20,
+  },
+  topContainer:{
+    backgroundColor:'#344CB7',
+    paddingVertical:20,
+    paddingHorizontal:15,
+    marginBottom:20,
+    borderBottomRightRadius:40,
+    borderBottomLeftRadius:40,
   },
   text:{
     fontFamily: 'OpenSans-Regular',
     color:'black',
+    fontSize:12,
+    color:'#F5F5F5'
   },
   searchBarContainer: {
     flexDirection: "row",
@@ -14,9 +32,9 @@ const styles = StyleSheet.create({
   searchBar: {
     flex: 1,
     color: "black",
-    borderColor: "gray",
+    borderColor: "#F5F5F5",
     borderWidth: 1,
-    borderRadius: 50,
+    borderRadius: 10,
     height:40,
     color:'black',
     paddingHorizontal: 15
@@ -24,7 +42,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 20,
+  
     color: "black",
     
   },
@@ -52,13 +70,14 @@ image: {
 },
 
   featuredContainer:{
+    paddingHorizontal:20,
   },
   square1:{
     backgroundColor:'gray',
     borderRadius:10,
     width:'100%',
     height:100,
-    overflow:'hidden'
+    overflow:'hidden',
   },
   featureImage:{
     height:'100%',
@@ -97,6 +116,7 @@ image: {
     marginVertical:10,
     marginTop:10,
     color:'black',
+    marginHorizontal:20
   },
   discoverWrapper:{
     flexDirection: 'row',
@@ -112,6 +132,7 @@ image: {
 // Products
 productContainer: {
   marginBottom:100,
+  marginHorizontal:15
 },
 
 productGrid: {
@@ -165,7 +186,6 @@ locationText: {
   fontFamily: 'OpenSans-Regular',
 },
  eventsContainer: {
-    marginVertical: 15,
   },
   sectionTitle: {
     fontSize: 18,
@@ -173,6 +193,7 @@ locationText: {
     marginBottom: 10,
     fontFamily: 'OpenSans-Semibold',
     color: 'black',
+    marginTop:20,
   },
   eventCardLarge: {
     width: 300,
