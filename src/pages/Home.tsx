@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import styles from '../assets/style/homeStyle.js';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Correct FontAwesome import
-import { faCalendar, faMapMarkedAlt, faStar, faTicketAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faMapMarkedAlt, faStar, faTicketAlt, faSliders } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home: React.FC = () => {
@@ -64,8 +64,12 @@ const Home: React.FC = () => {
               onChangeText={onChangeText}
               value={text}
               placeholder="Enter Text..."
-              placeholderTextColor="#F5F5F5"
+              placeholderTextColor="#CCCCCC"
             />
+                      <TouchableOpacity
+            style={styles.filterButton}>
+            <FontAwesomeIcon icon={faSliders} size={20} color="#CCCCCC" />
+          </TouchableOpacity>
           </View>
 
           {/* Horizontal Circles */}
@@ -250,8 +254,7 @@ const Home: React.FC = () => {
                   </View>
                 </View>
               </TouchableOpacity>
-              
-              
+       
               <View style={styles.eventsContainer}>
               <View style={styles.divider}></View>
                 <Text style={styles.sectionTitle}>Upcoming Events</Text>

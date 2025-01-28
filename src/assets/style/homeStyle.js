@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
   },
   searchBarContainer: {
     flexDirection: "row",
+    justifyContent:'center',
+    alignItems:'center',
   },
   searchBar: {
     flex: 1,
@@ -37,8 +39,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height:40,
     color:'black',
+    backgroundColor:'white',
     paddingHorizontal: 15
-
+  },
+  filterButton:{
+    marginLeft:10,
   },
   content: {
     flex: 1,
