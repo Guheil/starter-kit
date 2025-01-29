@@ -1,19 +1,20 @@
 import { StyleSheet } from "react-native";
+import {COLORS, FONT_SIZES, FONTS} from '../constants/constant'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#F5EFE7'
+    backgroundColor:COLORS.white,
   },
   divider:{
     height:2,
-    borderColor:'#CCCCCC',
+    borderColor: COLORS.gray,
     borderWidth:1,
     marginHorizontal:20,
     marginTop:20,
   },
   topContainer:{
-    backgroundColor:'#344CB7',
+    backgroundColor:COLORS.primary,
     paddingVertical:20,
     paddingHorizontal:15,
     marginBottom:20,
@@ -21,10 +22,10 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius:40,
   },
   text:{
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: FONTS.regular,
     color:'black',
     fontSize:12,
-    color:'#F5F5F5'
+    color: COLORS.white,
   },
   searchBarContainer: {
     flexDirection: "row",
@@ -34,12 +35,12 @@ const styles = StyleSheet.create({
   searchBar: {
     flex: 1,
     color: "black",
-    borderColor: "#F5F5F5",
+    borderColor: COLORS.white,
     borderWidth: 1,
     borderRadius: 10,
     height:40,
-    color:'black',
-    backgroundColor:'white',
+    color:COLORS.black,
+    backgroundColor:COLORS.white,
     paddingHorizontal: 15
   },
   filterButton:{
@@ -47,8 +48,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  
-    color: "black",
+    color: COLORS.black,
     
   },
   circleContainer:{
@@ -78,7 +78,7 @@ image: {
     paddingHorizontal:20,
   },
   square1:{
-    backgroundColor:'gray',
+    backgroundColor:COLORS.gray,
     borderRadius:10,
     width:'100%',
     height:100,
@@ -103,7 +103,7 @@ image: {
   square2:{
     marginTop:10,
     borderRadius:10,
-    backgroundColor:'gray',
+    backgroundColor:COLORS.gray,
     width:'98%',
     height:210,
     overflow:'hidden'
@@ -112,7 +112,7 @@ image: {
   square3:{
     marginTop:10,
     borderRadius:10,
-    backgroundColor:'gray',
+    backgroundColor:COLORS.gray,
     width:'98%',
     height:100,
      overflow:'hidden'
@@ -132,7 +132,7 @@ image: {
     color:'black',
     marginRight:10,
     fontSize:15,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: FONTS.semibold,
   },
 // Products
 productContainer: {
@@ -148,7 +148,7 @@ productGrid: {
 card: {
   width: '48%',
   height: 250,
-  backgroundColor: '#fff',
+  backgroundColor: COLORS.white,
   borderRadius: 8,
   overflow: 'hidden',
   marginBottom: 12,
@@ -168,27 +168,27 @@ cardContent: {
   
 },
 star:{
-  color:'#FFD700',
+  color:COLORS.secondary,
 },
 starContainer:{
   flexDirection:'row',
   marginTop:5,
 },
 starText:{
-  color:'gray',
+  color:COLORS.gray,
   fontSize:12
 },
 cardText: {
   fontSize: 14,
   fontWeight: '600',
   color: '#333',
-  fontFamily: 'OpenSans-Regular',
+  fontFamily: FONTS.regular,
   marginBottom: 4,
 },
 locationText: {
   fontSize: 12,
   color: '#666',
-  fontFamily: 'OpenSans-Regular',
+  fontFamily: FONTS.regular,
 },
  eventsContainer: {
   },
@@ -196,7 +196,7 @@ locationText: {
     fontSize: 18,
     fontWeight: '600',
     marginBottom: 10,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: FONTS.semibold,
     color: 'black',
     marginTop:20,
   },
@@ -232,7 +232,7 @@ locationText: {
   eventCategory: {
     color: '#fff',
     fontSize: 12,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: FONTS.semibold,
   },
   eventDetailsLarge: {
     padding: 15,
@@ -243,13 +243,13 @@ locationText: {
     fontSize: 18,
     fontWeight: '700',
     color: '#333',
-    fontFamily: 'OpenSans-Bold',
+    fontFamily: FONTS.bold,
     marginBottom: 8,
   },
   eventDescriptionLarge: {
     fontSize: 14,
     color: '#666',
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: FONTS.regular,
     marginBottom: 12,
   },
   eventInfoRowLarge: {
@@ -265,7 +265,7 @@ locationText: {
     marginLeft: 8,
     color: '#333',
     fontSize: 13,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: FONTS.regular,
   },
   eventBottomRowLarge: {
     flexDirection: 'row',
@@ -276,17 +276,17 @@ locationText: {
     marginLeft: 8,
     color: '#ffd700',
     fontSize: 14,
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: FONTS.semibold,
   },
   eventButtonLarge: {
-    backgroundColor: '#ffd700',
+    backgroundColor: COLORS.secondary,
     paddingHorizontal: 15,
     paddingVertical: 8,
     borderRadius: 25,
   },
   eventButtonTextLarge: {
     color: '#fff',
-    fontFamily: 'OpenSans-Semibold',
+    fontFamily: FONTS.semibold,
     fontSize: 14,
   },
 });

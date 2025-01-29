@@ -1,27 +1,31 @@
 import { StyleSheet, Dimensions } from "react-native";
+import {COLORS, FONTS, FONT_SIZE} from '../constants/constant'
 
-const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
   flex: 1,
-  backgroundColor: '#fff',
-
+  backgroundColor: COLORS.white,
 },
 content: {
-  flex: 1,
-  padding: 16,
+  flex: 1,  
+},
+topHeader:{
+  backgroundColor: COLORS.primary,
+  padding:16,
+  
+  borderBottomLeftRadius:20,
+  borderBottomRightRadius:20,
 },
 filterHeader: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: 16,
 },
 searchBarContainer: {
   flex: 1,
   flexDirection: 'row',
   alignItems: 'center',
-  backgroundColor: '#f5f5f5',
+  backgroundColor: 'white',
   borderRadius: 10,
   paddingHorizontal: 16,
 },
@@ -31,11 +35,11 @@ searchIcon: {
 searchBar: {
   flex: 1,
   height: 40,
-  color: '#333',
 },
 filterButton: {
   marginLeft: 12,
   padding: 10,
+  color: COLORS.white,
 },
 filterModal: {
   flex: 1,
@@ -53,7 +57,8 @@ filterHeader: {
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: 20,
+  
+ 
 },
 filterTitle: {
   fontSize: 20,
@@ -110,6 +115,8 @@ applyButtonText: {
 },
   productContainer: {
     flex: 1,
+    paddingHorizontal:16,
+    paddingVertical:16
   },
   productGrid: {
     flexDirection: 'row',
@@ -118,7 +125,7 @@ applyButtonText: {
     paddingBottom: 20,
   },
   card: {
-    width: (width - 43) / 2,
+    width: '48%',
     backgroundColor: '#FFFFFF',
     borderRadius: 5,
     marginBottom: 10,
@@ -131,23 +138,23 @@ applyButtonText: {
   },
   productImage: {
     width: '100%',
-    height: 200, 
+    height: 150, 
     resizeMode: 'cover',
   },
   cardTextContainer: {
     padding: 12,
   },
   cardText: {
-    fontSize: 16,
+    fontSize: FONT_SIZE.medium,
     fontWeight: '600',
     color: '#1C1C1E',
     marginBottom: 4,
-    fontFamily: 'OpenSans-Regular',
+    fontFamily: FONTS.regular,
   },
   cardTextLocation: {
-    fontSize: 13,
+    fontSize: FONT_SIZE.small,
     fontWeight: '600',
-    color: '#1C1C1E',
+    color: COLORS.gray,
     marginBottom: 4,
     fontFamily: 'OpenSans-Light',
   },

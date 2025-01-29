@@ -23,7 +23,13 @@ import {
   faStar,
   faTimes
 } from '@fortawesome/free-solid-svg-icons';
+import {COLORS} from '../assets/constants/constant'
 
+interface ProductsProps {
+  navigation: {
+    navigate: (screen: string, params?: any) => void;
+  };
+}
 const sampleProducts = [
   {
     id: 1,
@@ -93,7 +99,7 @@ const priceRanges = [
   { label: 'Over ₱150', min: 150, max: Infinity },
 ];
 
-const Products = ({ navigation }) => {
+const Products: React.FC<ProductsProps> = ({ navigation }) => {
   const [text, onChangeText] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [selectedPrices, setSelectedPrices] = useState([]);
@@ -153,30 +159,31 @@ const Products = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.filterHeader}>
-          <View style={styles.searchBarContainer}>
-            <FontAwesomeIcon
-              icon={faSearch}
-              size={16}
-              color="#888"
-              style={styles.searchIcon}
-            />
-            <TextInput
-              style={styles.searchBar}
-              onChangeText={onChangeText}
-              value={text}
-              placeholder="Search Products"
-              placeholderTextColor="#888"
-            />
+        <View style={styles.topHeader}>
+          <View style={styles.filterHeader}>
+            <View style={styles.searchBarContainer}>
+              <FontAwesomeIcon
+                icon={faSearch}
+                size={16}
+                color="#888"
+                style={styles.searchIcon}
+              />
+              <TextInput
+                style={styles.searchBar}
+                onChangeText={onChangeText}
+                value={text}
+                placeholder="Search Products"
+                placeholderTextColor="#888"
+              />
+            </View>
+            <TouchableOpacity
+              style={styles.filterButton}
+              onPress={() => setShowFilters(true)}
+            >
+              <FontAwesomeIcon icon={faSliders} size={20} color={COLORS.white} />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            style={styles.filterButton}
-            onPress={() => setShowFilters(true)}
-          >
-            <FontAwesomeIcon icon={faSliders} size={20} color="#808080" />
-          </TouchableOpacity>
         </View>
-
         <Modal visible={showFilters} animationType="slide" transparent>
           <View style={styles.filterModal}>
             <View style={styles.filterContent}>
