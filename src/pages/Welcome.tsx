@@ -1,6 +1,4 @@
-
 import React, { useEffect, useRef } from 'react';
-import { COLORS, FONTS, FONT_SIZE } from '../assets/constants/constant';
 import {
     View,
     Text,
@@ -8,53 +6,114 @@ import {
     Animated,
     StyleSheet,
     Dimensions,
+    ActivityIndicator
 } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
+const { width } = Dimensions.get('window');
+
 const Welcome = () => {
     const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
+    // Animations
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const translateY = useRef(new Animated.Value(50)).current;
+    const logoScale = useRef(new Animated.Value(0.8)).current;
+    const floatingAnim = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
         // Start animation sequence
         Animated.parallel([
             Animated.timing(fadeAnim, {
                 toValue: 1,
-                duration: 1500,
+                duration: 700,
                 useNativeDriver: true,
             }),
             Animated.timing(translateY, {
                 toValue: 0,
-                duration: 1500,
+                duration: 700,
                 useNativeDriver: true,
-            })
-        ]).start(() => {
-            // Add a small delay before navigating
-            setTimeout(() => {
-                navigation.replace('Login');
-            }, 1000);
-        });
-    }, []);
+            }),
+            Animated.spring(logoScale, {
+                toValue: 1,
+                friction: 3,
+                tension: 80,
+                useNativeDriver: true,
+            }),
+            Animated.loop(
+                Animated.sequence([
+                    Animated.timing(floatingAnim, {
+                        toValue: 5,
+                        duration: 1000,
+                        useNativeDriver: true,
+                    }),
+                    Animated.timing(floatingAnim, {
+                        toValue: 0,
+                        duration: 1000,
+                        useNativeDriver: true,
+                    }),
+                ])
+            ),
+        ]).start();
+
+        // Navigate to Login screen after delay
+        const navigationTimeout = setTimeout(() => {
+            navigation.replace('Login');
+        }, 2000);
+
+        // Cleanup timeout on unmount
+        return () => clearTimeout(navigationTimeout);
+    }, [fadeAnim, translateY, logoScale, floatingAnim, navigation]);
 
     return (
         <View style={styles.container}>
             <Animated.View
                 style={[
-                    styles.content,
+                    styles.contentContainer,
                     {
                         opacity: fadeAnim,
-                        transform: [{ translateY: translateY }]
-                    }
+                        transform: [{ translateY }],
+                    },
                 ]}
             >
-                <Image
+                <Animated.Image
                     source={require('../assets/img/logo.png')}
-                    style={styles.logo}
+                    style={[
+                        styles.logo,
+                        {
+                            transform: [
+                                { scale: logoScale },
+                                { translateY: floatingAnim },
+                            ],
+                        },
+                    ]}
                 />
-                <Text style={styles.appTitle}>Produkto Elyukal</Text>
-                <Text style={styles.welcomeText}>Welcome</Text>
+
+                <Animated.Text
+                    style={[
+                        styles.appTitle,
+                        { opacity: fadeAnim }
+                    ]}
+                >
+                    Produkto Elyukal
+                </Animated.Text>
+
+                <Animated.Text
+                    style={[
+                        styles.welcomeText,
+                        { opacity: fadeAnim }
+                    ]}
+                >
+                    Welcome
+                </Animated.Text>
+
+                <View style={styles.loaderContainer}>
+                    <ActivityIndicator
+                        size="large"
+                        color="#000000"
+                    />
+                </View>
             </Animated.View>
         </View>
     );
@@ -63,11 +122,11 @@ const Welcome = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.white,
+        backgroundColor: '#F5F5F5',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    content: {
+    contentContainer: {
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -76,19 +135,26 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: 60,
         marginBottom: 20,
+        backgroundColor: '#fff', 
     },
     appTitle: {
         fontFamily: 'OpenSans-Bold',
         fontSize: 28,
         color: '#333',
         marginBottom: 10,
+        textAlign: 'center',
     },
     welcomeText: {
         fontFamily: 'OpenSans-Regular',
         fontSize: 18,
         color: '#666',
         marginTop: 10,
-    }
+        textAlign: 'center',
+    },
+    loaderContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
 });
 
 export default Welcome;
