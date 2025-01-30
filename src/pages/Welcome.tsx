@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { COLORS } from '../assets/constants/constant';
 
 const { width } = Dimensions.get('window');
 
@@ -122,7 +123,7 @@ const Welcome = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5F5F5',
+        backgroundColor: COLORS.white,
         justifyContent: 'center',
         alignItems: 'center',
     },
