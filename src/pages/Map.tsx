@@ -1,4 +1,4 @@
-import { View, StyleSheet, TouchableOpacity, Text, SafeAreaView } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, SafeAreaView, Image } from 'react-native';
 import React, { useState } from 'react';
 import MapboxGL from '@rnmapbox/maps';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -6,15 +6,46 @@ import {
     faMap,
     faStreetView,
     faLocationDot,
-    faSatelliteDish
+    faSatelliteDish,
+    faStore
 } from '@fortawesome/free-solid-svg-icons';
+import styles from '../assets/style/mapStyle';
 
 // Initialize Mapbox
 MapboxGL.setAccessToken('pk.eyJ1Ijoia2x5bmVhamlkbyIsImEiOiJjbTYzb2J0cmsxNWR5MmxyMHFzdHJkazl1In0.zxp6GI9_XeY0s1gxpwB4lg');
 MapboxGL.setTelemetryEnabled(false);
 
-const Map = () => {
+// Sample store data
+const storeLocations = [
+    {
+        id: '1',
+        coordinate: [120.3209, 16.6159],
+        name: "Sukang Iloco Store",
+        type: "Traditional",
+        rating: 4.5,
+        image: require('../assets/img/product-images/sukang-iloco.png')
+    },
+    {
+        id: '2',
+        coordinate: [120.3259, 16.6179],
+        name: "Vigan Basi Shop",
+        type: "Wine Store",
+        rating: 4.8,
+        image: require('../assets/img/product-images/basi-wine.jpg')
+    },
+    {
+        id: '3',
+        coordinate: [120.3159, 16.6139],
+        name: "Handcraft Center",
+        type: "Artisan Store",
+        rating: 4.2,
+        image: require('../assets/img/handcraft.png')
+    }
+];
+
+const Map:React.FC = () => {
     const [mapStyle, setMapStyle] = useState('streets-v12');
+    const [selectedStore, setSelectedStore] = useState(null);
 
     const toggleMapStyle = () => {
         setMapStyle(prevStyle =>
@@ -22,76 +53,57 @@ const Map = () => {
         );
     };
 
-    const styles = StyleSheet.create({
-        safeArea: {
-            flex: 1,
-            backgroundColor: '#FFFFFF'
-        },
-        container: {
-            flex: 1,
-        },
-        header: {
-            backgroundColor: '#FFFFFF',
-            padding: 16,
-            borderBottomWidth: 1,
-            borderBottomColor: '#E0E0E0',
-            elevation: 2,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.1,
-            shadowRadius: 2,
-        },
-        headerText: {
-            fontSize: 24,
-            fontWeight: '600',
-            color: '#333333',
-            textAlign: 'left',
-        },
-        mapContainer: {
-            flex: 1,
-            height: '100%',
-            width: '100%'
-        },
-        map: {
-            flex: 1,
-            height: '100%',
-            width: '100%'
-        },
-        toggleButton: {
-            position: 'absolute',
-            top: 16,
-            right: 16,
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            padding: 12,
-            borderRadius: 50,
-            elevation: 4,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.25,
-            shadowRadius: 3.84,
-            width: 48,
-            height: 48,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderWidth: 1,
-            borderColor: 'rgba(0, 0, 0, 0.1)',
-        },
-        activeToggle: {
-            backgroundColor: '#007AFF',
-        },
-        icon: {
-            color: '#000000',
-        },
-        activeIcon: {
-            color: '#FFFFFF',
-        }
-    });
+    const renderAnnotation = (store: any) => {
+        return (
+            <MapboxGL.PointAnnotation
+                key={store.id}
+                id={store.id}
+                coordinate={store.coordinate}
+                onSelected={() => setSelectedStore(store)}
+            >
+                <View style={styles.annotationContainer}>
+                    <View style={styles.annotationPin}>
+                    <TouchableOpacity>
+                    <Image
+                      source={store.image}
+                      style={styles.pinImage}/>
+                    </TouchableOpacity>
+                    </View>
+                </View>
+                
+                {selectedStore?.id === store.id ? (
+                    // @ts-ignore
+                    <MapboxGL.Callout title={store.name}>
+                        <View style={styles.calloutContent}>
+                            <Image 
+                                source={store.image} 
+                                style={styles.storeImage}
+                                
+                            />
+                            <View style={styles.calloutText}>
+                                <Text style={styles.storeName}>{store.name}</Text>
+                                <Text style={styles.storeType}>{store.type}</Text>
+                                <View style={styles.ratingContainer}>
+                                    <FontAwesomeIcon 
+                                        icon={faLocationDot} 
+                                        size={12} 
+                                        color="#FFD700"
+                                    />
+                                    <Text style={styles.ratingText}>{store.rating}</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </MapboxGL.Callout>
+                ) : <></>}
+            </MapboxGL.PointAnnotation>
+        );
+    };
+
 
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>Listings Near You</Text>
                 </View>
 
                 <View style={styles.mapContainer}>
@@ -108,18 +120,9 @@ const Map = () => {
                             animationMode='flyTo'
                             animationDuration={6000}
                         />
-                        <MapboxGL.PointAnnotation
-                            id='marker'
-                            coordinate={[120.3209, 16.6159]}
-                        >
-                            <View>
-                                <FontAwesomeIcon
-                                    icon={faLocationDot}
-                                    size={24}
-                                    color="#FF0000"
-                                />
-                            </View>
-                        </MapboxGL.PointAnnotation>
+                        {storeLocations.map((store) => (
+                            <View key={store.id}>{renderAnnotation(store)}</View>
+                        ))}
                     </MapboxGL.MapView>
 
                     <TouchableOpacity

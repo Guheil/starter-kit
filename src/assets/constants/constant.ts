@@ -1,6 +1,6 @@
 //COLORS
 export const COLORS:Record<string,string> = {
-    primary: "#344CB7",
+    primary: "#0c58bb",
     secondary:"#FFD700",
     white:"#F5EFE7",
     black: "#000000",
