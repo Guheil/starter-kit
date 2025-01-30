@@ -111,7 +111,7 @@ const Welcome = () => {
                 <View style={styles.loaderContainer}>
                     <ActivityIndicator
                         size="large"
-                        color="#000000"
+                        color="#ffd700"
                     />
                 </View>
             </Animated.View>
