@@ -18,8 +18,8 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
 // Hardcoded account credentials
 const VALID_CREDENTIALS = {
-    email: 'tite',
-    password: 'Etits'
+    email: 'test@gmail.com',
+    password: '123123'
 };
 
 const LoginScreen: React.FC = () => {
