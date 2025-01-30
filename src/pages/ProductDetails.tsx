@@ -45,7 +45,7 @@ const ProductARScene: React.FC<ProductARSceneProps> = ({ product, onClose, scene
     const [isTracking, setIsTracking] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [position] = useState<[number, number, number]>([0, 0, 0]);
-    const [scale] = useState<[number, number, number]>([0.15, 0.15, 0.15]);
+    const [scale] = useState<[number, number, number]>([0.21, 0.21, 0.21]);
     const [rotation] = useState<[number, number, number]>([0, 0, 0]);
 
     const onInitialized = (state: string) => {
