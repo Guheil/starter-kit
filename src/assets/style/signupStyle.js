@@ -38,6 +38,7 @@ const loginSignupStyles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 15,
     paddingHorizontal: 15,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
   },
   inputIcon: {
     marginRight: 10,

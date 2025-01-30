@@ -40,6 +40,7 @@ const loginSignupStyles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 15,
     paddingHorizontal: 15,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
   },
   inputIcon: {
     marginRight: 10,
@@ -49,6 +50,7 @@ const loginSignupStyles = StyleSheet.create({
     height: 50,
     fontFamily: 'OpenSans-Regular',
     color: '#333',
+    
   },
   forgotPasswordContainer: {
     alignSelf: 'flex-end',
@@ -122,6 +124,11 @@ const loginSignupStyles = StyleSheet.create({
     fontFamily: 'OpenSans-Regular',
     textAlign: 'center',
   },
+  eyeIcon: {
+    position: 'absolute',
+    right: 10,
+    padding: 5
+},
 
 });
 

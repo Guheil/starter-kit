@@ -7,16 +7,14 @@ import {
     SafeAreaView,
     Image,
     KeyboardAvoidingView,
-    Platform,
-    Alert
+    Platform
 } from 'react-native';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../assets/style/loginStyle';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-// Hardcoded account credentials
 const VALID_CREDENTIALS = {
     email: 'test@gmail.com',
     password: '123123'
@@ -27,25 +25,17 @@ const LoginScreen: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = () => {
         const trimmedEmail = email.trim().toLowerCase();
         const trimmedPassword = password.trim();
 
-        if (
-            trimmedEmail === VALID_CREDENTIALS.email &&
-            trimmedPassword === VALID_CREDENTIALS.password
-        ) {
+        if (trimmedEmail === VALID_CREDENTIALS.email && trimmedPassword === VALID_CREDENTIALS.password) {
             setError('');
             navigation.navigate('Tabs');
         } else {
             setError('Invalid email or password');
-
-            // Alert.alert(
-            //     'Login Failed',
-            //     'Invalid email or password. Please try again.',
-            //     [{ text: 'OK' }]
-            // );
         }
     };
 
@@ -60,10 +50,7 @@ const LoginScreen: React.FC = () => {
                 style={styles.container}
             >
                 <View style={styles.logoContainer}>
-                    <Image
-                        source={require('../assets/img/logo.png')}
-                        style={styles.logo}
-                    />
+                    <Image source={require('../assets/img/logo.png')} style={styles.logo} />
                     <Text style={styles.appTitle}>Produkto Elyukal</Text>
                 </View>
 
@@ -95,8 +82,11 @@ const LoginScreen: React.FC = () => {
                             placeholderTextColor="#666"
                             value={password}
                             onChangeText={setPassword}
-                            secureTextEntry
+                            secureTextEntry={!showPassword}
                         />
+                        <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={styles.eyeIcon}>
+                            <FontAwesomeIcon icon={showPassword ? faEye  : faEyeSlash} size={20} color="#666" />
+                        </TouchableOpacity>
                     </View>
 
                     <TouchableOpacity style={styles.forgotPasswordContainer}>
