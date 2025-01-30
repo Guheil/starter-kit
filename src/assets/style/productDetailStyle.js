@@ -160,6 +160,49 @@ const styles = StyleSheet.create({
     responsiveText: {
         fontSize: width > 375 ? 16 : 14, // Adjust font size for smaller screens
     },
+    arButtonsContainer: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 20,
+},
+ cameraButton: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        borderWidth: 3,
+        borderColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    cameraButtonInner: {
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    cameraButtonInnerCircle: {
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        backgroundColor: 'white',
+        position: 'absolute',
+        alignSelf: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
 });
 
 export default styles;
