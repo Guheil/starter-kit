@@ -42,6 +42,9 @@ const LoginScreen: React.FC = () => {
     const handleSignup = () => {
         navigation.navigate('Signup');
     };
+    const handleForgotPassword = () => {
+        navigation.navigate('ForgotPassword');
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -89,7 +92,7 @@ const LoginScreen: React.FC = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={styles.forgotPasswordContainer}>
+                    <TouchableOpacity style={styles.forgotPasswordContainer} onPress={handleForgotPassword}>
                         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
                     </TouchableOpacity>
 
